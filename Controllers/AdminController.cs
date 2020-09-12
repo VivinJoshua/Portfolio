@@ -72,6 +72,9 @@ namespace Portfolio.Controllers
             {
                 return View("Index", upload);
             }
+            int id = Convert.ToInt32(upload.Works.Filter);
+            var filtervalue = context.filters.SingleOrDefault(x => x.Id == id);
+
             HttpPostedFileBase image = Request.Files["Image"];
             byte[] bytes = null;
             using (BinaryReader br = new BinaryReader(image.InputStream))
@@ -83,7 +86,7 @@ namespace Portfolio.Controllers
                 Image = bytes,
                 Description = upload.Works.Description,
                 Title = upload.Works.Title,
-                Filter = upload.Works.Filter,
+                Filter = filtervalue.Filter,
                 DT=DateTime.Now
             };
             context.Works.Add(work);

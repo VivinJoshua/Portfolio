@@ -76,7 +76,6 @@ D:\ASP\Portfolio\bin\System.Web.WebPages.Razor.xml
 D:\ASP\Portfolio\bin\Newtonsoft.Json.xml
 D:\ASP\Portfolio\bin\Antlr3.Runtime.pdb
 D:\ASP\Portfolio\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\ASP\Portfolio\obj\Debug\Portfolio.csprojAssemblyReference.cache
 D:\ASP\Portfolio\obj\Debug\Portfolio.Migrations.first.resources
 D:\ASP\Portfolio\obj\Debug\Portfolio.Migrations.filters.resources
 D:\ASP\Portfolio\obj\Debug\Portfolio.Migrations.filter.resources
