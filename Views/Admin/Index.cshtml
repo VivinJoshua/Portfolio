@@ -1,0 +1,47 @@
+﻿@model Portfolio.Models.Login
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <center>
+        <h2>MYFOLIO</h2>
+
+        <div>
+            @using (Html.BeginForm("Index", "Admin"))
+            {
+
+                <p class="text-danger">@ViewBag.usernotexist</p>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.UserName)
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "text-danger" })
+                </div>
+
+                <p class="text-danger">@ViewBag.incorrectpassword</p>
+
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Password)
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+                </div>
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-success">Login</button>
+            }
+        </div>
+    </center>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>

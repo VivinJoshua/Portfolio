@@ -1,0 +1,48 @@
+﻿@model Portfolio.ViewModels.UploadViewModel
+@{
+    ViewBag.Title = "Main";
+}
+<style>
+    #logout
+    {
+        float:right;
+
+    }
+
+</style>
+<a href="@Url.Action("Index","Portfolio")" ;"><h4>Portfolio</h4></a>
+    
+<hr />
+<h2>Upload</h2>
+@using (Html.BeginForm("Main", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div style="margin-left:50px">
+    <div class="form-group">
+        @Html.LabelFor(x => x.Works.Title)
+        @Html.TextBoxFor(x => x.Works.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Works.Title, "", new { @class = "text-danger" })
+    </div>
+   
+    <div class="form-group">
+        @Html.LabelFor(x => x.Works.Filter)
+        @Html.DropDownListFor(x => x.Works.Filter, new SelectList(Model.filters, "Id", "Filter"), "Select Filter", new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Works.Filter, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Works.Description)
+        @Html.TextAreaFor(x => x.Works.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Works.Description, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(x => x.Works.Image)<br />
+        <input type="file" name="Image" id="Image" />
+    </div>
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-success">Upload</button><br />
+    </div>
+    }
+    <div id="logout">
+
+        <a href="@Url.Action("Logout","Admin")" style="text-decoration:none;color:red" ;"><h4>Logout</h4></a>
+
+    </div>
