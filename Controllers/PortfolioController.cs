@@ -13,7 +13,7 @@ namespace Portfolio.Controllers
         public ActionResult Index()
         {
             portfolioContext context = new portfolioContext();
-            var work = context.Works.ToList();
+            var work = context.Works.OrderByDescending(x=>x.DT).ToList();
             return View(work);
         }
     }
